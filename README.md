@@ -1,2 +1,2 @@
 # designmatrix
-Tools for Creating Design/Model Matrices with Dates in R
+Tools for creating design/model matrices with dates in R.
