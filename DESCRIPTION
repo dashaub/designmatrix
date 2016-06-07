@@ -2,14 +2,14 @@ Package: designmatrix
 Type: Package
 Title: Tools for Creating Design/Model Matrices with Dates
 Version: 0.1.0
-Date: 2015-08-14
+Date: 2016-06-07
 Authors@R: person("David", "Shaub", email = "davidshaub@gmx.com", role = c("aut", "cre"))
 Maintainer: David Shaub <davidshaub@gmx.com>
-URL: https://github.com/dashaub/designmatrix
-BugReports: https://github.com/dashaub/designmatrix/issues
+URL: https://github.com/dashaub
+BugReports: https://github.com/dashaub
 Description: Design/model matrices are useful covariates for regression models
-    and and machine learning tasks. R does a good job of handling these for
-    you automatically for factors, but extra difficulties present themselves
+    and machine learning tasks. R does a good job of handling these for
+    automatically for factors, but extra difficulties present themselves
     when working with dates. Identifying holidays and the days around them
     can be useful along with other interesting features (e.g. first/last
     week of month, weekday, major sports events, months, and interaction
@@ -20,9 +20,10 @@ Depends:
 License: GPL-3
 LazyData: TRUE
 Imports:
-    stats (>= 3.1.1),
-    Matrix (>= 1.2.2),
-    lubridate (>= 1.3.3)
+    lubridate (>= 1.3.3),
+    Matrix (>= 1.2.2)
+Suggests:
+    testthat
 ByteCompile: true
 NeedsCompilation: no
 RoxygenNote: 5.0.1
