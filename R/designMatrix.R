@@ -1,29 +1,11 @@
+# TODO list
 # Add argument for writing output matrix as logical, numeric, factor, or integer
 # Add argument for keeping unused levels of interactions
 
 
-#' designmatrix: A package for creating design matrices with dates.
-#'
-#' The designmatrix package creates deisgn/model matrices for dates.
-#' The workhorse designMatrix function supports many differetn terms
-#' (e.g. weekday, month, leap years, holidays, etc). Some of these
-#' are in development and as yet not implemented.
-#'
-#' @section designmatrix functions:
-#' designMatrix
-#'
-#' @docType package
-#' @name designMatrix
-NULL
-#> NULL
-#' @importFrom lubridate quarter week month year wday mday
-#' @importFrom stats model.matrix
-#' @importFrom Matrix rankMatrix
 
 
-
-
-#' Create a design matrix with for the given days with the given design terms
+#' Create a design matrix withthe given days with for given design terms
 #'
 #' @param x A vector of dates.
 #' @param weekdays A character vector of the weekdays to include.
@@ -109,14 +91,14 @@ designMatrix <- function(x = NULL, weekdays = NULL, months = NULL,
   }
 
   # Create day of week, month, and day of month
-  DOW <- wday(x)
+  DOW <- lubridate::wday(x)
   #DAY <- lubridate::mday(x)
-  MONTH <- month(x)
-  YEAR <- year(x)
-  QUARTER <- quarter(x)
-  WEEK <- week(x)
-  MDAY <- mday(x)
-  LY <- matrix(as.integer(leap_year(x)), nrow = length(x))
+  MONTH <- lubridate::month(x)
+  YEAR <- lubridate::year(x)
+  QUARTER <- lubridate::quarter(x)
+  WEEK <- lubridate::week(x)
+  MDAY <- lubridate::mday(x)
+  LY <- matrix(as.integer(lubridate::leap_year(x)), nrow = length(x))
   names(LY) <- "LeapYear"
 
 
@@ -164,7 +146,7 @@ designMatrix <- function(x = NULL, weekdays = NULL, months = NULL,
   }
   if(is.element("all", tolower(weeks))){
     matrixout <- cbind(matrixout, weekMat)
-  }else if(!is.null(week)){
+  }else if(!is.null(weeks)){
     matrixout <- cbind(matrixout, weekMat[TRUE, as.character(weeks)])
   }
   if(weekend){
@@ -188,8 +170,28 @@ designMatrix <- function(x = NULL, weekdays = NULL, months = NULL,
   }
 
   #Test for colinearity
-  if(rankMatrix(matrixout) < ncol(matrixout)){
+  if(Matrix::rankMatrix(matrixout) < ncol(matrixout)){
     warning("Matrix has perfect colinearity")
   }
   return(matrixout)
 }
+
+#' designmatrix: A package for creating design matrices with dates.
+#'
+#' The designmatrix package creates deisgn/model matrices for dates.
+#' The workhorse designMatrix function supports many differetn terms
+#' (e.g. weekday, month, leap years, holidays, etc). Some of these
+#' are in development and as yet not implemented.
+#'
+#' @section designmatrix functions:
+#' designMatrix
+#'
+#' @docType package
+#' @name designMatrix
+NULL
+#> NULL
+
+#' #@importFrom lubridate quarter week month year wday mday
+#' #@importFrom stats model.matrix
+#' #@importFrom Matrix rankMatrix
+#' 
