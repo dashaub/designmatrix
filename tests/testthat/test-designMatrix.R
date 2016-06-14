@@ -6,5 +6,6 @@ if(require(testthat)){
                        to = as.Date("2001-01-01"),
                        by = "days")
     expect_error(designMatrix(sampleDates, weekdays = "all"), NA)
+    expect_error(designMatrix(sampleDates, weekdays = "monday"), NA)
   })
 }
