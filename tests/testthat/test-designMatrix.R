@@ -8,6 +8,8 @@ if(require(testthat)){
     expect_error(designMatrix(sampleDates, weekdays = "all"), NA)
     #expect_error(designMatrix(sampleDates, weekdays = "monday"), NA)
     expect_error(designMatrix(sampleDates, years = c(1900, 1950, 2000)), NA)
+    expect_warning(designMatrix(sampleDates, quarters = "all"))
+    expect_error(designMatrix(sampleDates, months = "all"), NA)
   })
   context("Testing the designMatrix() function with invalid syntax")
   test_that("Testing invalid inputs", {
@@ -15,9 +17,9 @@ if(require(testthat)){
                    to = as.Date("2001-01-01"),
                    by = "days")
     expect_error(designMatrix(sampleDates, months = 1:13))
-    expect_error(designMatrix(sampleDates, months = c("February", 3))
+    expect_error(designMatrix(sampleDates, months = c("February", 3)))
     expect_error(designMatrix(sampleDates, quarters = 1:5))
-    expect_error(designMatrix(sampleDates, quarters = c("Q1", 3))
+    expect_error(designMatrix(sampleDates, quarters = c("Q1", 3)))
     expect_error(designMatrix())
     expect_error(designMatrix("January 13 2014", days = "all"))
     
