@@ -3,3 +3,7 @@
 
 # designmatrix
 Tools for creating design/model matrices with dates in R. Development has restarted (June 2016) after a long hiatus.
+
+
+## License
+This package is free software released under the [GPL-3](http://www.gnu.org/licenses/gpl-3.0.en.html) license.
