@@ -22,6 +22,7 @@ if(require(testthat)){
     expect_error(designMatrix(sampleDates, quarters = c("Q1", 3)))
     expect_error(designMatrix())
     expect_error(designMatrix("January 13 2014", days = "all"))
+    expect_error(designMatrix(sampleDates))
     
   })
 }
