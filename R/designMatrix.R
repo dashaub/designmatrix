@@ -26,9 +26,9 @@
 #' @examples
 #' alldates <- seq(from = as.Date("2000-01-01"), to = as.Date("2005-10-01"), by = "days")
 #'
-#' designMatrix(x = alldates, weekdays = "all", months = "January")
-#' designMatrix(x = alldates, weekdays = c("Wednesday", "Friday"), quarters = "all")
-#' designMatrix(x = alldates, months = "all", years = c(2002, 2004))
+#' dm1 <- designMatrix(x = alldates, weekdays = "all", months = "January")
+#' dm2 <- designMatrix(x = alldates, weekdays = c("Wednesday", "Friday"), quarters = "all")
+#' dm3 <- designMatrix(x = alldates, months = "all", years = c(2002, 2004))
 #' @export
 designMatrix <- function(x = NULL, weekdays = NULL, months = NULL,
                          holidays = NULL, years = NULL,
