@@ -16,7 +16,7 @@ if(require(testthat)){
     sampleDates <- seq(from = as.Date("1899-01-01"),
                        to = as.Date("2001-01-01"),
                        by = "days")
-    expect_error(as.numeric(0))
+    expect_error(designMatrix(as.numeric(0)))
     expect_error(designMatrix(sampleDates, weekdays = 1:8))
     expect_error(designMatrix(sampleDates, weekdays = c("Monday", 3)))
     expect_error(designMatrix(sampleDates, months = 1:13))
