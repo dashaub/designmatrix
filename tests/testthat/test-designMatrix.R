@@ -14,8 +14,11 @@ if(require(testthat)){
   context("Testing the designMatrix() function with invalid syntax")
   test_that("Testing invalid inputs", {
     sampleDates <- seq(from = as.Date("1899-01-01"),
-                   to = as.Date("2001-01-01"),
-                   by = "days")
+                       to = as.Date("2001-01-01"),
+                       by = "days")
+    expect_error(as.numeric(0))
+    expect_error(designMatrix(sampleDates, weekdays = 1:8))
+    expect_error(designMatrix(sampleDates, weekdays = c("Monday", 3)))
     expect_error(designMatrix(sampleDates, months = 1:13))
     expect_error(designMatrix(sampleDates, months = c("February", 3)))
     expect_error(designMatrix(sampleDates, quarters = 1:5))
