@@ -13,9 +13,9 @@
 #' @param holidays TODO (A character vector of the holidays to include.)
 #' @param years A numeric vector of the years to include.
 #' @param interactions TODO (A character vector of the weekdays to include.)
-#' @param dayOfMonth tTODO A numeric vector of the day of the month to include.
+#' @param dayOfMonth TODO A numeric vector of the day of the month to include.
 #' @param daysInMonth TODO A numeric vector of the days in the month to include.
-#' @param leapYear tTODO A logical that indicates whether to include a leap year indicator.
+#' @param leapYear TODO A logical that indicates whether to include a leap year indicator.
 #' @param quarters A character vector of the quarters to include.
 #' @param weeks A numeric vector to include the week number of the year.
 #' @param weekend A logical that indicates if a weekend (Saturday or Sunday) indicator should be included
@@ -52,7 +52,7 @@ designMatrix <- function(x = NULL, weekdays = NULL, months = NULL,
   if(is.null(weekdays) & is.null(months) & is.null(holidays)
      & is.null(years) & is.null(interactions)
      & is.null(daysInMonth) & is.null(dayOfMonth)
-     & leapYear & is.null(quarters)
+     & !leapYear & is.null(quarters)
      & is.null(weeks) & !weekday & !weekend){
     stop("No design terms specified")
   }
