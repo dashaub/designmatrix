@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/dashaub/designmatrix/badge.svg?branch=master)](https://coveralls.io/github/dashaub/designmatrix?branch=master)
 
 # designmatrix
-Tools for creating design/model matrices with dates in R. Development has restarted (June 2016) after a long hiatus.
+Tools for creating design/model matrices with dates in R. The project is currently inactive.
 
 ## Usage
 Many features are not yet implemented or optimized. However, basic usage is outlined below:
